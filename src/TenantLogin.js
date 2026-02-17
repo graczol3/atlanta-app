@@ -14,7 +14,7 @@ export default function TenantLogin() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://atlanta-app.onrender.com/api/login", {
+      const response = await fetch("https://atlanta-app.onrender.com/api/loginTEST", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, password: pass }),
