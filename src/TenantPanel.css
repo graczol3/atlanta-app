@@ -1,0 +1,530 @@
+/* TenantPanel.css - Spójny styl z panelem admina */
+
+/* Układ główny */
+.tenant-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  gap: 0;
+}
+
+/* Sidebar - styl jak w panelu admina */
+.tenant-sidebar {
+  background: #0f172a;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 14px;
+}
+
+.tenant-sidebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  margin-bottom: 14px;
+}
+
+.tenant-sidebar .brand .logo {
+  font-size: 22px;
+}
+
+.tenant-sidebar .brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.tenant-sidebar .brand-name {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.tenant-sidebar .menu {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.tenant-sidebar .menu-item {
+  text-align: left;
+  background: transparent;
+  color: #e5e7eb;
+  border: 1px solid transparent;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.12s ease, border 0.12s ease, transform 0.12s ease;
+  font-size: 14px;
+}
+
+.tenant-sidebar .menu-item:hover {
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.25);
+  transform: translateX(2px);
+}
+
+.tenant-sidebar .menu-item.active {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+}
+
+.tenant-sidebar .sidebar-footer {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.tenant-sidebar .btn.light {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tenant-sidebar .btn.light:hover {
+  background: #e5e7eb;
+}
+
+/* Main Content */
+.tenant-main {
+  background: #f8fafc;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Header w sekcjach */
+.tenant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tenant-header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+  color: #111827;
+}
+
+.tenant-header .subtitle {
+  color: #64748b;
+  margin: 0;
+  font-size: 14px;
+}
+
+.tenant-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tenant-user .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.tenant-user .name {
+  font-weight: 700;
+  color: #111827;
+}
+
+.tenant-user .role {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Karty */
+.tenant-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tenant-card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.tenant-card .meta {
+  color: #64748b;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.tenant-card .price {
+  color: #059669;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+/* Lista */
+.tenant-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tenant-list li {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tenant-list li .info {
+  flex: 1;
+  font-size: 14px;
+  color: #374151;
+}
+
+.tenant-list li .actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.approved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge.due {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge.overdue {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge.paid {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.open {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge.in-progress {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.resolved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Przyciski */
+.btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.12s ease;
+}
+
+.btn.primary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #2563eb;
+}
+
+.btn.light {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.btn.light:hover {
+  background: #e5e7eb;
+}
+
+.btn.danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background: #dc2626;
+}
+
+/* Formularze */
+.tenant-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.tenant-form input,
+.tenant-form select,
+.tenant-form textarea {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.tenant-form input:focus,
+.tenant-form select:focus,
+.tenant-form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.tenant-form .upload {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.tenant-form .upload:hover {
+  background: #e5e7eb;
+}
+
+.tenant-form .upload input[type="file"] {
+  display: none;
+}
+
+.tenant-form .hint {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: -6px;
+}
+
+/* Filtry */
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Grid kart */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* Responsywność */
+@media (max-width: 900px) {
+  .tenant-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tenant-sidebar {
+    grid-row: 2;
+    border-top: 1px solid #1f2937;
+  }
+
+  .tenant-main {
+    grid-row: 1;
+  }
+}
+
+/* Toolbar - dla kompatybilności wstecznej */
+.tenant-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* Topbar z ikoną profilu */
+.tenant-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  margin: -20px -20px 20px -20px;
+}
+
+.tenant-topbar-spacer {
+  flex: 1;
+}
+
+.tenant-profile-menu {
+  position: relative;
+}
+
+.tenant-profile-menu .tenant-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.12s ease;
+}
+
+.tenant-profile-menu .tenant-user:hover {
+  background: #f3f4f6;
+}
+
+.tenant-profile-menu .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.tenant-profile-menu .name {
+  font-weight: 700;
+  color: #111827;
+  font-size: 14px;
+}
+
+.tenant-profile-menu .role {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Dropdown menu */
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  transition: background 0.12s ease;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: #f9fafb;
+}
+
+.dropdown-item.logout {
+  color: #dc2626;
+}
+
+.dropdown-item.logout:hover {
+  background: #fef2f2;
+}
+
+/* Notification toggle */
+.notification-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.notification-toggle:hover {
+  background: #f3f4f6;
+}
+
+.notification-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.notification-toggle span {
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Usunięcie starych stylów sidebar footer */
+.tenant-sidebar .sidebar-footer {
+  display: none;
+}

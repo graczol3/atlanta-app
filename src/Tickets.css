@@ -1,0 +1,134 @@
+.admin-tickets {
+  max-width: 1400px;   /* 🔥 SZERZEJ */
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ===== FILTRY ===== */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.filters input,
+.filters select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== PANEL ===== */
+.tickets-panel {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* ===== GRID ===== */
+.tickets-head,
+.tickets-row {
+  display: grid;
+  grid-template-columns:
+    140px   /* ID */
+    110px   /* Data */
+    90px    /* Lokal */
+    200px   /* Najemca */
+    1fr     /* 🔥 OPIS – NAJSZERSZY */
+    120px   /* Priorytet */
+    120px   /* Status */
+    160px;  /* Akcje */
+
+  gap: 12px;
+  align-items: center;
+}
+
+.tickets-head {
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tickets-row {
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* ===== OPIS ===== */
+.description {
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* ===== EMAIL ===== */
+.email {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ===== BADGES ===== */
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.low {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge.open {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge.in_progress {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.resolved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ===== AKCJE ===== */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.light {
+  background: #f3f4f6;
+}
+
+.btn.danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+.empty {
+  padding: 20px;
+  text-align: center;
+  color: #6b7280;
+}

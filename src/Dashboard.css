@@ -1,0 +1,148 @@
+/* RESET DLA CAŁEJ STRONY */
+html,
+body,
+#root {
+  height: auto !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* WRAPPER DASHBOARDU – BEZ TŁA */
+.dashboard-outer-wrapper {
+  width: 100%;
+  display: block;
+  background: transparent;
+  padding-bottom: 20px;
+}
+
+.dashboard-container {
+  width: 98%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* NAGŁÓWEK */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* STATYSTYKI */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-tile {
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.stat-tile h3 {
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.stat-tile p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 5px 0 0 0;
+}
+
+.tile-blue {
+  background: linear-gradient(135deg, #4e73df, #224abe);
+}
+.tile-green {
+  background: linear-gradient(135deg, #1cc88a, #13855c);
+}
+.tile-orange {
+  background: linear-gradient(135deg, #f6c23e, #dda20a);
+}
+.tile-purple {
+  background: linear-gradient(135deg, #6f42c1, #4e2ea3);
+}
+
+/* UKŁAD PANELI */
+.main-content-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  flex: 1;
+  min-width: 0;
+}
+
+.chart-wide {
+  flex: 2;
+}
+.chart-small {
+  flex: 1;
+}
+
+.chart-wrapper {
+  height: 250px;
+  width: 100%;
+}
+
+/* LISTY */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+/* BADGES */
+.badge {
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.pending {
+  background: #f6c23e;
+}
+.approved {
+  background: #1cc88a;
+}
+.rejected {
+  background: #e74a3b;
+}
+.high {
+  background: #e74a3b;
+}
+.medium {
+  background: #f6c23e;
+}
+.low {
+  background: #36b9cc;
+}

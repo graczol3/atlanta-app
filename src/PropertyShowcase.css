@@ -1,0 +1,142 @@
+/* ===== LAYOUT ===== */
+.showcase-container {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.showcase-header-top {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 50px;
+}
+
+.showcase-header-top h1 {
+  color: #1e3a8a;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.showcase-header-top p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* ===== CARD ===== */
+.showcase-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid #eef2f6;
+  transition: transform 0.25s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ===== IMAGE ===== */
+.showcase-img-placeholder {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== SMALL BADGE ONLY ===== */
+.badge-reserved {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ===== TYPE TAG ===== */
+.showcase-type-tag {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+/* ===== DETAILS ===== */
+.showcase-details {
+  padding: 22px;
+}
+
+.showcase-details h3 {
+  margin: 0 0 10px;
+  color: #334155;
+}
+
+.showcase-address {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.showcase-params {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 18px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.showcase-price-section {
+  margin-bottom: 18px;
+}
+
+.price-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.price-period {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* ===== BUTTON ===== */
+.btn-interest {
+  width: 100%;
+  padding: 12px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-interest:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}

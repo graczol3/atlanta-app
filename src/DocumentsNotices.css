@@ -1,0 +1,166 @@
+.docs-notices {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.docs-notices h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ================= PANEL ================= */
+
+.panel {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  margin-bottom: 24px;
+}
+
+/* ================= FORM ================= */
+
+.notice-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notice-form input,
+.notice-form textarea,
+.notice-form select {
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.2s ease;
+}
+
+.notice-form input:focus,
+.notice-form textarea:focus,
+.notice-form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+.form-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* ================= LISTA OGŁOSZEŃ ================= */
+
+.notice-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #f9fafb;
+  transition: 0.2s ease;
+  margin-top: 10px;
+}
+
+.notice-item:hover {
+  background: #f1f5f9;
+}
+
+/* pinned */
+
+.notice-item.pinned {
+  border-color: #facc15;
+  background: #fffbea;
+}
+
+/* LEWA STRONA */
+
+.notice-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.notice-left strong {
+  font-weight: 500;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.notice-meta {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+/* ================= PRZYCISKI ================= */
+
+.notice-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.notice-actions .btn {
+  min-width: 85px;
+  text-align: center;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn.primary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #2563eb;
+}
+
+.btn.light {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.btn.light:hover {
+  background: #cbd5e1;
+}
+
+.btn.danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background: #dc2626;
+}
+
+.empty {
+  color: #94a3b8;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 14px;
+}

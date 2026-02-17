@@ -1,0 +1,197 @@
+/* RESET + PEŁNA WYSOKOŚĆ */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+}
+
+/* GŁÓWNY KONTEJNER ADMINA */
+.admin-outer-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: #f8fafc;
+}
+
+/* GRID ADMINA – MUSI WYPEŁNIAĆ EKRAN */
+.admin-layout-main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.admin-sidebar-nav {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.logo-img { font-size: 24px; }
+.brand-title { font-weight: 800; font-size: 1.2rem; }
+
+.vertical-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-link-item {
+  text-align: left;
+  background: transparent;
+  color: #cbd5e1;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.95rem;
+}
+
+.menu-link-item:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* CONTENT */
+.admin-view-port {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+.admin-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.header-nav-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.nav-btn-alt {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.nav-btn-alt:hover {
+  background: #f1f5f9;
+}
+
+.logout-red {
+  color: #dc2626;
+  background: #fee2e2;
+  border-color: #fecaca;
+}
+
+/* PROFIL */
+.admin-profile-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-circle {
+  width: 40px;
+  height: 40px;
+  background: #1e40af;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* KAFELKI */
+.admin-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.admin-card-tile {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-card-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(0,0,0,0.1);
+}
+
+.tile-heading {
+  margin: 15px 0 8px 0;
+  font-size: 1.15rem;
+}
+
+.tile-subtext {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.tile-action-link {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* ============================= */
+/* 🔥 KLUCZOWA NAPRAWA – FOOTER */
+/* ============================= */
+
+footer {
+  position: fixed;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #94a3b8;
+  background: transparent;
+  pointer-events: none;
+}
+/* ============================= */
+/* STICKY AKCJE ADMINA */
+/* ============================= */
+
+.admin-profile-info {
+  position: relative;
+}
+
+.admin-sticky-actions {
+  position: sticky;
+  top: 12px;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+

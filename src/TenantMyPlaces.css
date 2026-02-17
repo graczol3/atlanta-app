@@ -1,0 +1,114 @@
+.tenant-myplaces-page {
+  padding: 24px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.myplaces-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.myplace-row {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18); /* CHANGED */
+  overflow: hidden;
+}
+
+/* LEWA */
+.myplace-left {
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* CHANGED */
+  color: #f8fafc; /* CHANGED */
+  display: flex;
+  flex-direction: column;
+}
+
+.myplace-left img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.left-info {
+  padding: 20px;
+}
+
+.left-info h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #ffffff; /* CHANGED */
+}
+
+.address {
+  opacity: 0.9; /* CHANGED */
+  margin: 6px 0;
+  color: #c7d2fe; /* CHANGED */
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 12px 0;
+  color: #bae6fd; /* CHANGED */
+}
+
+.status-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18); /* CHANGED */
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e0f2fe; /* CHANGED */
+}
+
+/* PRAWA */
+.myplace-right {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #f8fafc; /* CHANGED */
+  color: #0f172a; /* CHANGED */
+}
+
+.info-section h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #1e293b; /* CHANGED */
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  font-size: 14px;
+}
+
+.info-section ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.info-section li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #334155; /* CHANGED */
+}
+
+/* EMPTY */
+.empty-box {
+  background: #f1f5f9; /* CHANGED */
+  border: 1px dashed #94a3b8; /* CHANGED */
+  padding: 24px;
+  border-radius: 14px;
+  color: #334155; /* CHANGED */
+}

@@ -1,0 +1,379 @@
+/* Tenant.css - Upgraded Version */
+
+/* Container */
+.tenant-container {
+  max-width: 960px;
+  margin: 40px auto;
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08),
+              0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.tenant-container:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12),
+              0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Formularz */
+.tenant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tenant-form input,
+.tenant-form select {
+  padding: 14px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.tenant-form input:focus,
+.tenant-form select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1),
+              0 4px 12px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Karty */
+.card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #3b82f6;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+.card:hover::before {
+  transform: scaleY(1);
+}
+
+.card .title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.card .meta {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.card .price {
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #0f172a;
+  font-size: 1.3rem;
+}
+
+.card .avail {
+  color: #047857;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Lista */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.list li:hover {
+  background: white;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateX(4px);
+}
+
+/* Przyciski */
+.btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #0070f3 0%, #0052cc 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 112, 243, 0.3);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 112, 243, 0.4);
+  background: linear-gradient(135deg, #0052cc 0%, #003d99 100%);
+}
+
+.btn.light {
+  background: #f3f4f6;
+  color: #111;
+}
+
+.btn.light:hover {
+  background: #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn.accent-outline {
+  background: transparent;
+  color: #6d28d9;
+  border: 2px solid #e9d5ff;
+  padding: 10px 24px;
+}
+
+.btn.accent-outline:hover {
+  background: #faf5ff;
+  border-color: #a78bfa;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.15);
+}
+
+/* Toolbar */
+.tenant-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Badge - etykiety statusów */
+.badge {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.due {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.badge.overdue {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+  }
+}
+
+.badge.paid {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+/* Upload input */
+.upload input[type="file"] {
+  display: none;
+}
+
+.upload {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 16px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  border: 2px dashed #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.upload:hover {
+  background: #e2e8f0;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+/* Error message */
+.error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  background: #fee2e2;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid #dc2626;
+}
+
+/* Hint */
+.hint {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Panel */
+.panel {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tenant-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+/* Nawigacja bez loga w Tenant.css */
+.tenant-nav-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Wypycha wszystko do prawej */
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 2px solid #e2e8f0; /* Spójne z Twoim toolbar-em */
+  margin-bottom: 30px;
+}
+
+.nav-user-info {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-user-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b; /* Kolor z Twoich kart */
+  font-family: inherit;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.notification-list {
+  display: grid;
+  gap: 10px;
+}
+
+.account-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
