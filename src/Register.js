@@ -10,6 +10,8 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const API_URL = "https://atlanta-app.onrender.com"; // 🔥 BACKEND URL
+
   const handleNameChange = (val, setter) => {
     const onlyLetters = val.replace(/[^a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]/g, "");
     setter(onlyLetters);
@@ -37,7 +39,7 @@ export default function Register() {
     }
 
     try {
-      const response = await fetch('http://127.0.0.1:5001/api/register', {
+      const response = await fetch(`${API_URL}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, firstName, lastName }),
@@ -60,7 +62,6 @@ export default function Register() {
   return (
     <div className="tenant-container">
 
-      {/* 🔥 PRZYCISK POWROTU */}
       <button
         onClick={() => navigate(-1)}
         style={{
@@ -84,7 +85,6 @@ export default function Register() {
 
       <div className="tenant-form-wrapper">
 
-        {/* ✅ DODANE LOGO – IDENTYCZNE JAK W LOGINIE */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <img 
             src="/atlanta.png" 

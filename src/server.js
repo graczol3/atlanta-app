@@ -6,7 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 🔐 Połączenie z Supabase (PostgreSQL)
+/* ================= POŁĄCZENIE Z SUPABASE ================= */
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -15,17 +16,43 @@ const pool = new Pool({
 });
 
 pool.connect()
-  .then(() => console.log("✅ Połączono z PostgreSQL (Supabase)"))
+  .then(() => console.log("✅ Połączono z Supabase (PostgreSQL)"))
   .catch(err => console.error("❌ Błąd połączenia:", err.message));
 
+/* ================= ADMIN LOGIN ================= */
 
-// ================= LOGIN =================
+app.post('/api/admin-login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const result = await pool.query(
+      `SELECT email, role
+       FROM "Users"
+       WHERE email = $1 AND password = $2 AND role = 'admin'`,
+      [email, password]
+    );
+
+    if (result.rows.length > 0) {
+      return res.json({ success: true, admin: result.rows[0] });
+    }
+
+    res.status(401).json({ success: false });
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/* ================= LOGIN ================= */
+
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const result = await pool.query(
-      `SELECT * FROM users WHERE email = $1 AND password = $2`,
+      `SELECT email, role, "FirstName", "LastName", "Phone", "Address"
+       FROM "Users"
+       WHERE email = $1 AND password = $2 AND role = 'najemca'`,
       [email, password]
     );
 
@@ -40,14 +67,14 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+/* ================= REJESTRACJA ================= */
 
-// ================= REGISTER =================
 app.post('/api/register', async (req, res) => {
   const { email, password, firstName, lastName } = req.body;
 
   try {
     await pool.query(
-      `INSERT INTO users (email, password, role, firstName, lastName, createdAt)
+      `INSERT INTO "Users" (email, password, role, "FirstName", "LastName", "CreatedAt")
        VALUES ($1, $2, 'najemca', $3, $4, NOW())`,
       [email, password, firstName, lastName]
     );
@@ -59,14 +86,66 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
+/* ================= AKTUALIZACJA PROFILU ================= */
 
-// ================= PROFILE =================
+app.put('/api/update-profile', async (req, res) => {
+  const { email, firstName, lastName, phone, address } = req.body;
+
+  try {
+    await pool.query(
+      `UPDATE "Users"
+       SET "FirstName" = $1,
+           "LastName" = $2,
+           "Phone" = $3,
+           "Address" = $4
+       WHERE email = $5`,
+      [firstName, lastName, phone, address, email]
+    );
+
+    res.json({ success: true });
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/* ================= ZMIANA HASŁA ================= */
+
+app.put('/api/change-password', async (req, res) => {
+  const { email, currentPassword, newPassword } = req.body;
+
+  try {
+    const check = await pool.query(
+      `SELECT id FROM "Users" WHERE email = $1 AND password = $2`,
+      [email, currentPassword]
+    );
+
+    if (check.rows.length === 0) {
+      return res.status(401).json({ success: false });
+    }
+
+    await pool.query(
+      `UPDATE "Users" SET password = $1 WHERE email = $2`,
+      [newPassword, email]
+    );
+
+    res.json({ success: true });
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/* ================= PROFILE ================= */
+
 app.get('/api/profile/:email', async (req, res) => {
-  const email = req.params.email;
+  const email = decodeURIComponent(req.params.email);
 
   try {
     const result = await pool.query(
-      `SELECT * FROM users WHERE email = $1`,
+      `SELECT email, "FirstName", "LastName", "Phone", "Address"
+       FROM "Users"
+       WHERE email = $1`,
       [email]
     );
 
@@ -81,37 +160,14 @@ app.get('/api/profile/:email', async (req, res) => {
   }
 });
 
+/* ================= USUWANIE KONTA ================= */
 
-// ================= UPDATE PROFILE =================
-app.put('/api/update-profile', async (req, res) => {
-  const { email, firstName, lastName, phone, address } = req.body;
-
-  try {
-    await pool.query(
-      `UPDATE users
-       SET firstName = $1,
-           lastName = $2,
-           phone = $3,
-           address = $4
-       WHERE email = $5`,
-      [firstName, lastName, phone, address, email]
-    );
-
-    res.json({ success: true });
-
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-
-// ================= DELETE ACCOUNT =================
 app.delete('/api/delete-account', async (req, res) => {
   const { email } = req.body;
 
   try {
     await pool.query(
-      `DELETE FROM users WHERE email = $1`,
+      `DELETE FROM "Users" WHERE email = $1`,
       [email]
     );
 
@@ -122,7 +178,10 @@ app.delete('/api/delete-account', async (req, res) => {
   }
 });
 
+/* ================= START SERWERA ================= */
 
-app.listen(process.env.PORT || 5001, () =>
-  console.log(`🚀 Serwer działa`)
-);
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Serwer działa na porcie ${PORT}`);
+});
