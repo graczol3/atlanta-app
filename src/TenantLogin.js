@@ -14,7 +14,7 @@ export default function TenantLogin() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://atlanta-app.onrender.com", {
+      const response = await fetch("https://atlanta-app.onrender.com/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, password: pass }),
@@ -38,10 +38,10 @@ export default function TenantLogin() {
       sessionStorage.setItem(
         "tenant",
         JSON.stringify({
-          email: data.user.Email,
-          role: data.user.Role,
-          firstName: data.user.FirstName,
-          lastName: data.user.LastName,
+          email: data.user.email,
+          role: data.user.role,
+          firstName: data.user.firstName,
+          lastName: data.user.lastName,
         })
       );
 
@@ -66,7 +66,6 @@ export default function TenantLogin() {
 
   return (
     <>
-      {/* 🔥 PRZYCISK POWROTU */}
       <button
         type="button"
         onClick={() => navigate(-1)}
