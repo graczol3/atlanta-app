@@ -26,9 +26,9 @@ app.post('/api/admin-login', async (req, res) => {
 
   try {
     const result = await pool.query(
-      `SELECT email, role
+      `SELECT "email", "role"
        FROM "Users"
-       WHERE email = $1 AND password = $2 AND role = 'admin'`,
+       WHERE "email" = $1 AND "password" = $2 AND "role" = 'admin'`,
       [email, password]
     );
 
@@ -50,9 +50,9 @@ app.post('/api/login', async (req, res) => {
 
   try {
     const result = await pool.query(
-      `SELECT email, role, "FirstName", "LastName", "Phone", "Address"
+      `SELECT "email", "role", "firstName", "lastName", "phone", "address"
        FROM "Users"
-       WHERE email = $1 AND password = $2 AND role = 'najemca'`,
+       WHERE "email" = $1 AND "password" = $2 AND "role" = 'najemca'`,
       [email, password]
     );
 
@@ -74,7 +74,7 @@ app.post('/api/register', async (req, res) => {
 
   try {
     await pool.query(
-      `INSERT INTO "Users" (email, password, role, "FirstName", "LastName", "CreatedAt")
+      `INSERT INTO "Users" ("email", "password", "role", "firstName", "lastName", "createdAt")
        VALUES ($1, $2, 'najemca', $3, $4, NOW())`,
       [email, password, firstName, lastName]
     );
@@ -94,11 +94,11 @@ app.put('/api/update-profile', async (req, res) => {
   try {
     await pool.query(
       `UPDATE "Users"
-       SET "FirstName" = $1,
-           "LastName" = $2,
-           "Phone" = $3,
-           "Address" = $4
-       WHERE email = $5`,
+       SET "firstName" = $1,
+           "lastName" = $2,
+           "phone" = $3,
+           "address" = $4
+       WHERE "email" = $5`,
       [firstName, lastName, phone, address, email]
     );
 
@@ -116,7 +116,9 @@ app.put('/api/change-password', async (req, res) => {
 
   try {
     const check = await pool.query(
-      `SELECT id FROM "Users" WHERE email = $1 AND password = $2`,
+      `SELECT "id"
+       FROM "Users"
+       WHERE "email" = $1 AND "password" = $2`,
       [email, currentPassword]
     );
 
@@ -125,7 +127,9 @@ app.put('/api/change-password', async (req, res) => {
     }
 
     await pool.query(
-      `UPDATE "Users" SET password = $1 WHERE email = $2`,
+      `UPDATE "Users"
+       SET "password" = $1
+       WHERE "email" = $2`,
       [newPassword, email]
     );
 
@@ -143,9 +147,9 @@ app.get('/api/profile/:email', async (req, res) => {
 
   try {
     const result = await pool.query(
-      `SELECT email, "FirstName", "LastName", "Phone", "Address"
+      `SELECT "email", "firstName", "lastName", "phone", "address"
        FROM "Users"
-       WHERE email = $1`,
+       WHERE "email" = $1`,
       [email]
     );
 
@@ -167,7 +171,7 @@ app.delete('/api/delete-account', async (req, res) => {
 
   try {
     await pool.query(
-      `DELETE FROM "Users" WHERE email = $1`,
+      `DELETE FROM "Users" WHERE "email" = $1`,
       [email]
     );
 
