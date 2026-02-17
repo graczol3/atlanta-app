@@ -29,7 +29,7 @@ export default function TenantProfile() {
   useEffect(() => {
     if (!tenant.email) return;
 
-    fetch(`http://127.0.0.1:5001/api/profile/${encodeURIComponent(tenant.email)}`)
+    fetch(`https://atlanta-app.onrender.com/api/profile/${encodeURIComponent(tenant.email)}`)
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -50,7 +50,7 @@ export default function TenantProfile() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/update-profile", {
+      const response = await fetch("https://atlanta-app.onrender.com/api/update-profile", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(profile),
@@ -94,7 +94,7 @@ export default function TenantProfile() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/change-password", {
+      const response = await fetch("https://atlanta-app.onrender.com/api/change-password", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -128,7 +128,7 @@ export default function TenantProfile() {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/delete-account", {
+      const response = await fetch("https://atlanta-app.onrender.com/api/delete-account", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
