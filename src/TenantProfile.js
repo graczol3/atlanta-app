@@ -34,11 +34,11 @@ export default function TenantProfile() {
       .then(data => {
         if (data.success) {
           setProfile({
-            email: data.user.Email,
-            firstName: data.user.FirstName || "",
-            lastName: data.user.LastName || "",
-            phone: data.user.Phone || "",
-            address: data.user.Address || "",
+            email: data.user.email,
+            firstName: data.user.firstName || "",
+            lastName: data.user.lastName || "",
+            phone: data.user.phone || "",
+            address: data.user.address || "",
           });
         }
       })
@@ -172,7 +172,6 @@ export default function TenantProfile() {
         </div>
       </div>
 
-      {/* ================= DANE OSOBOWE ================= */}
       <div className="tenant-card">
         <h3>Dane osobowe</h3>
 
@@ -180,26 +179,12 @@ export default function TenantProfile() {
           <div className="form-grid">
             <div className="form-group">
               <label>Imię</label>
-              <input
-                type="text"
-                value={profile.firstName}
-                onChange={(e) =>
-                  setProfile({ ...profile, firstName: e.target.value })
-                }
-                required
-              />
+              <input type="text" value={profile.firstName} disabled />
             </div>
 
             <div className="form-group">
               <label>Nazwisko</label>
-              <input
-                type="text"
-                value={profile.lastName}
-                onChange={(e) =>
-                  setProfile({ ...profile, lastName: e.target.value })
-                }
-                required
-              />
+              <input type="text" value={profile.lastName} disabled />
             </div>
           </div>
 
